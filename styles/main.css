@@ -565,11 +565,6 @@ body {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      -o-object-fit: contain;
-         object-fit: contain;
       -o-object-position: center;
          object-position: center; }
     .gallery__img-wrap {
