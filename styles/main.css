@@ -180,7 +180,8 @@ button,
 input,
 select,
 textarea {
-  color: #222; }
+  color: #222;
+  scroll-behavior: smooth; }
 
 ::-moz-selection {
   text-shadow: none; }
@@ -319,11 +320,6 @@ body {
   letter-spacing: 2px;
   font-size: 12px;
   font-weight: 500; }
-  .header__nav {
-    position: absolute;
-    bottom: 7.75%;
-    left: 120px;
-    right: 120px; }
   .header__unique {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -378,7 +374,11 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -ms-flex-item-align: center;
-      align-self: center; }
+      align-self: center;
+  position: absolute;
+  bottom: 7.75%;
+  left: 120px;
+  right: 120px; }
 
 .nav__link {
   color: #fff;
@@ -423,6 +423,8 @@ body {
     display: none; } }
 
 @media (max-width: 914px) {
+  .header {
+    background-size: cover; }
   .nav {
     left: 0;
     bottom: 0; }
@@ -447,11 +449,17 @@ body {
           align-self: center;
       background-color: #0067df;
       height: 100vh;
-      width: 100vw; }
+      width: 100vw;
+      bottom: 0;
+      left: 0;
+      right: 0; }
     .nav__toggler-label, .nav__toggler {
       position: absolute;
       bottom: 0;
-      left: 55%; }
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      z-index: 1; }
     .nav__toggler:checked + .nav__toggler-label::after {
       content: "x"; }
     .nav__toggler-label {
@@ -501,7 +509,7 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding: 64px 30px 50px; }
+    padding: 64px 30px 65px; }
     .about__article {
       margin: 0 auto;
       width: 500px; }
@@ -513,6 +521,10 @@ body {
     .about__text {
       text-align: justify; } }
 
+@media (max-width: 700px) {
+  .about__article {
+    width: 80%; } }
+
 @media (max-width: 600px) {
   .about__title {
     font-size: 30px;
@@ -520,8 +532,6 @@ body {
     width: auto; }
   .about__subtitle {
     text-align: center; }
-  .about__article {
-    width: auto; }
   .subtitle {
     font-size: 20px;
     line-height: 25px; } }
@@ -547,7 +557,7 @@ body {
        object-position: center;
     max-height: 260px; }
     .gallery__photos_right {
-      padding-right: 20px; }
+      margin-right: 20px; }
   .gallery__img {
     width: 100%; }
   .gallery__text {
@@ -557,26 +567,24 @@ body {
     width: 180px; }
 
 @media (max-width: 914px) {
-  .gallery {
-    padding: 64px 30px; }
-    .gallery__title {
-      margin-bottom: 30px; }
-    .gallery__photos {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -o-object-position: center;
-         object-position: center; }
-    .gallery__img-wrap {
-      width: 50%;
-      height: 131px; }
-    .gallery__img {
-      width: 100%;
-      height: 100%;
-      -o-object-fit: cover;
-         object-fit: cover;
-      -o-object-position: center;
-         object-position: center; } }
+  .gallery__title {
+    margin-bottom: 40px; }
+  .gallery__photos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -o-object-position: center;
+       object-position: center; }
+  .gallery__img-wrap {
+    width: 50%;
+    height: 131px; }
+  .gallery__img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center; } }
 
 .consultation {
   max-width: 1020px;
@@ -611,7 +619,7 @@ body {
 
 @media (max-width: 914px) {
   .consultation {
-    padding: 64px 30px; }
+    padding-bottom: 90px; }
     .consultation__title {
       margin-bottom: 30px; }
     .consultation__wrap {
@@ -628,7 +636,8 @@ body {
     .consultation__form {
       margin: 32px auto 0; }
     .consultation__text {
-      padding: 0; }
+      padding: 0;
+      text-align: justify; }
     .consultation__subtitle {
       margin: 0 auto;
       text-align: center; }
@@ -637,14 +646,24 @@ body {
   .form__input {
     width: 500px; } }
 
-@media (max-width: 600px) {
-  .consultation__info {
-    width: auto; }
-  .consultation__btn {
-    width: auto; }
+@media (max-width: 700px) {
+  .consultation__btn,
   .contact__btn,
   .form__input {
-    width: auto; } }
+    display: block;
+    width: 100%; }
+  .consultation__info {
+    width: 80%; }
+  .form {
+    width: 80%; } }
+
+@media (max-width: 600px) {
+  .consultation__info {
+    width: 90%; }
+  .form {
+    width: 90%; }
+    .form__input {
+      width: 100%; } }
 
 .team {
   max-width: 1020px;
@@ -677,9 +696,9 @@ body {
 
 @media (max-width: 914px) {
   .team {
-    padding: 64px 30px 0; }
+    padding-bottom: 40px; }
     .team__title {
-      margin-bottom: 30px; }
+      margin-bottom: 45px; }
     .team__cards {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
@@ -711,7 +730,7 @@ body {
             justify-content: space-between;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-top: 75px; }
+    margin-top: 60px; }
   .contact__info {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -734,22 +753,22 @@ body {
     margin-bottom: 16px; }
 
 @media (max-width: 914px) {
-  .contact {
-    padding: 64px 30px; }
-    .contact__title {
-      margin-bottom: 0; }
-    .contact__wrap {
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column; }
-    .contact__info {
-      margin: 0 auto; }
-    .contact__form {
-      margin: 32px auto 0; } }
+  .contact__title {
+    margin-bottom: 0; }
+  .contact__wrap {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .contact__info {
+    margin: 0 auto; }
+  .contact__form {
+    margin: 32px auto 0; }
+  .contact__text {
+    text-align: left; } }
 
 @media (max-width: 600px) {
   .contact__info {
